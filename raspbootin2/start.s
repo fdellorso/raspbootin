@@ -5,16 +5,18 @@
 .global PUT32
 .global GET32
 .global dummy
+.global BOOTUP
 
 /**
  * from the original raspbootin
  **/
-Start:
+start:
 	// Setup the stack.
 	mov	sp, #0x8000
+	bl main
 
 	// we're loaded at 0x8000, relocate to _start.
-.relocate:
+/*.relocate:
 	// copy from r3 to r4.
 	mov	r3, #0x8000
 	ldr	r4, =_start
@@ -41,25 +43,28 @@ Start:
 
 	// If we're still below bss_end, loop.
 	cmp	r4, r9
-	blo	1b
+	blo	1b*/
 
 	// Call kernel_main
-	ldr	r3, =main
-	bl	r3
+
 
 	// halt
 halt:
 	wfe
-	b	halt
+	b halt
 
 
 PUT32:
     str r1,[r0]
-    bx lr
+    mov pc, lr
 
 GET32:
     ldr r0,[r0]
-    bx lr
+    mov pc, lr
 
 dummy:
-    bx lr
+    mov pc, lr
+    
+BOOTUP:
+    mov pc, r0
+    b halt

@@ -166,7 +166,7 @@ void send_kernel(int fd, const char *file) {
 	    done = true;
 	}
 	while(len > 0) {
-	    ssize_t len2 = write(fd, &buf[pos], len);
+	    ssize_t len2 = write(fd, &buf[pos], 1);    
 	    if (len2 == -1) {
 		perror("write()");
 		do_exit(fd, EXIT_FAILURE);

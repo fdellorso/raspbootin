@@ -32,6 +32,13 @@ extern unsigned int GET32 ( unsigned int );
  **/
 extern void dummy ( unsigned int );
 
+/**
+ * \brief jump to the specified address
+ * \param[in] r0 the address to jump to
+ * \author Stefan Naumann
+ **/
+extern void BOOTUP ( unsigned int );
+
 #define GPFSEL1         (PBASE+0x00200004)
 #define GPSET0          (PBASE+0x0020001C)
 #define GPCLR0          (PBASE+0x00200028)

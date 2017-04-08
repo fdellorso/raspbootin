@@ -3,9 +3,9 @@ CC = $(ARM)-gcc
 AS = $(ARM)-as
 
 #ASOPTS=-march=arm -mcpu=arm1176jzf-s
-ASOPTS=-march=armv6 -mcpu=arm1176jzf-s
+ASOPTS=-march=armv6 -mcpu=arm1176jzf-s -g
 LDOPTS=
-CFLAGS=-std=c99 -Wall -pedantic
+CFLAGS=-std=c99 -Wall -pedantic -g
 
 KRNL=kernel
 
@@ -56,5 +56,5 @@ $(KRNL).elf : $(OBJECTS) $(LINKER)
 # Rule to clean files.
 clean : 
 	rm *.o
-	rm $(KRNL).list $(KRNL).img $(KRNL).elf $(KRNL).
-	rm -f $(MAP)
+	rm $(KRNL).img $(KRNL).elf $(KRNL)
+	rm $(KRNL).list $(KRNL).map
