@@ -5,12 +5,17 @@ Simple boot-over-serial bootloader for the Raspberry Pi
 
 The Raspbootin repository contains 2 components: Raspbootin and Raspbootcom.
 
-Raspbootin:
+Raspbootin2:
 -----------
 
 Raspbootin is the actual bootloader that you install on the SD Card for your
 Raspberry Pi. Copy the raspbootin/kernel.img in place of the kernel.img on
 the SD Card and you are ready for use.
+
+This is a rewrite of the Raspbootin loader. It will use UART1 instead of UART0 of the Raspberry Pi. The code has been tested on:
+- Raspberry Pi Zero
+
+Raspbootin2 is compatible to Raspbootcom. Special thanks to David Welch (dwelch@dwelch.com) for the uart05-demo.
 
 Raspbootcom:
 ------------
