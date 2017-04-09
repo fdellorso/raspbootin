@@ -16,14 +16,14 @@
 #  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 all:
-	$(MAKE) -C raspbootin $@
+	$(MAKE) -C raspbootin2 $@
 	$(MAKE) -C raspbootcom $@
 
 %:
-	$(MAKE) -C raspbootin $@
+	$(MAKE) -C raspbootin2 $@
 	$(MAKE) -C raspbootcom $@
 
 dist-clean:
-	$(MAKE) -C raspbootin $@
+	$(MAKE) -C raspbootin2 $@
 	$(MAKE) -C raspbootcom $@
 	find -name "*~" -delete
