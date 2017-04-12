@@ -17,6 +17,7 @@ Raspbootin is the actual bootloader that you install on the SD Card for your Ras
 Be sure to load this kernel to 0x02000000 (edit the config.txt-file in the boot-partition and add a line ```kernel_address=0x02000000```).
 
 This is a rewrite of the Raspbootin loader. It will use UART1 instead of UART0 of the Raspberry Pi. The code has been tested on:
+- Raspberry Pi Model A
 - Raspberry Pi Zero
 
 Raspbootin2 is compatible to Raspbootcom. Special thanks to David Welch (dwelch@dwelch.com) for the uart05-demo.
