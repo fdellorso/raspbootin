@@ -12,39 +12,6 @@
 
 #include "platform.h"
 
-/**
- * \brief put a 32-bit word to a specific address
- * \param[in] r0 the address to write to
- * \param[in] r1 the value for writing
- * \author David Welch
- **/
-extern void PUT32 ( unsigned int, unsigned int );
-/**
- * \brief get a 32-bit word from an address
- * \param[in] r0 the address to read from
- * \return the read value
- * \author David Welch
- **/
-extern unsigned int GET32 ( unsigned int );
-/**
- * \brief jump; just waste time
- * \author David Welch
- **/
-extern void dummy ( unsigned int );
-
-/**
- * \brief jump to the specified address
- * \param[in] r0 the address to jump to
- * \author Stefan Naumann
- **/
-extern void BOOTUP ( unsigned int );
-
-#define GPFSEL1         (PBASE+0x00200004)
-#define GPSET0          (PBASE+0x0020001C)
-#define GPCLR0          (PBASE+0x00200028)
-#define GPPUD           (PBASE+0x00200094)
-#define GPPUDCLK0       (PBASE+0x00200098)
-
 #define AUX_ENABLES     (PBASE+0x00215004)
 #define AUX_MU_IO_REG   (PBASE+0x00215040)
 #define AUX_MU_IER_REG  (PBASE+0x00215044)

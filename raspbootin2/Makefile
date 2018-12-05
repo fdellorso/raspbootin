@@ -18,7 +18,7 @@ OBJECTS = $(ASSRCS) $(CSRCS)
 
 # Rule to make everything.
 all: 
-	make rpi
+	make rpibp
 	
 rpi: PLAT=PLATFORM_RPI 
 rpi: $(KRNL).img
@@ -51,10 +51,11 @@ $(KRNL).elf : $(OBJECTS) $(LINKER)
 	$(AS) -I. $(ASOPTS) $< -o $@
 
 %.o: %.c
-	$(CC) -D$(PLAT) -I. $(CFLAGS)  $< -c -o $@
+	# $(CC) -D$(PLAT) -I. $(CFLAGS)  $< -c -o $@
+	$(CC) -I. $(CFLAGS)  $< -c -o $@
 
 # Rule to clean files.
 clean : 
 	rm *.o
-	rm $(KRNL).img $(KRNL).elf $(KRNL)
-	rm $(KRNL).list $(KRNL).map
+	rm $(KRNL).img $(KRNL).elf $(KRNL).map
+	# rm $(KRNL).list $(KRNL)
