@@ -1,4 +1,5 @@
-ARM = arm-none-eabi
+BASE=$(shell pwd)/
+ARM = $(BASE)../../gcc-arm-none-eabi/bin/arm-none-eabi
 CC = $(ARM)-gcc
 AS = $(ARM)-as
 
