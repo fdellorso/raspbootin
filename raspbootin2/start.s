@@ -1,21 +1,16 @@
-.section ".init"
-
-// Make Start global.
-.globl Start
-.global PUT32
-.global GET32
-.global dummy
-.global BOOTUP
+.extern main
+	.section .init
+	.globl _start
 
 /**
  * from the original raspbootin
  **/
 start:
-	// Setup the stack.
+	;// Setup the stack.
 	mov	sp, #0x8000
 	bl main
 
-	// we're loaded at 0x8000, relocate to _start.
+	;// we're loaded at 0x8000, relocate to _start.
 /*.relocate:
 	// copy from r3 to r4.
 	mov	r3, #0x8000
@@ -45,26 +40,28 @@ start:
 	cmp	r4, r9
 	blo	1b*/
 
-	// Call kernel_main
+	;// Call kernel_main
 
-
-	// halt
+	;// halt
 halt:
 	wfe
 	b halt
 
-
+.globl PUT32
 PUT32:
     str r1,[r0]
     mov pc, lr
 
+.globl GET32
 GET32:
     ldr r0,[r0]
     mov pc, lr
 
+.globl dummy
 dummy:
     mov pc, lr
-    
+
+.globl BOOTUP    
 BOOTUP:
     mov pc, r0
     b halt

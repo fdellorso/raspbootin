@@ -78,7 +78,7 @@ again:
     size |= uart_recv() << 24;
 
     // the kernel is too big
-    if (0x8000 + size > LOADER_ADDR) 
+    if ((0x8000 + size) > LOADER_ADDR) 
     {
         uart_puts("SE");
         goto again;
@@ -101,4 +101,3 @@ again:
     uart_puts("boot...\r\n");
     BOOTUP(0x8000);
 }
-
