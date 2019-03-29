@@ -16,46 +16,46 @@ int main ()
     ra |= 1 << 21;
     PUT32(GPFSEL4, ra);
 
-    // JTAG GPIO Settings
-    PUT32(GPPUD, 0);
-    for (ra = 0; ra < 150; ra++)
-        dummy(ra);
-    // PUT32(GPPUDCLK0,(1<<4)|(1<<22)|(1<<23)|(1<<24)|(1<<25)|(1<<27));
-    PUT32(GPPUDCLK0, (1 << 5) | (1 << 6) | (1 << 12) | (1 << 13) | (1 << 22) | (1 << 26));
-    for (ra = 0; ra < 150; ra++)
-        dummy(ra);
-    PUT32(GPPUDCLK0, 0);
+    // // JTAG GPIO Settings
+    // PUT32(GPPUD, 0);
+    // for (ra = 0; ra < 150; ra++)
+    //     dummy(ra);
+    // // PUT32(GPPUDCLK0,(1<<4)|(1<<22)|(1<<23)|(1<<24)|(1<<25)|(1<<27));
+    // PUT32(GPPUDCLK0, (1 << 5) | (1 << 6) | (1 << 12) | (1 << 13) | (1 << 22) | (1 << 26));
+    // for (ra = 0; ra < 150; ra++)
+    //     dummy(ra);
+    // PUT32(GPPUDCLK0, 0);
 
-    ra  = GET32(GPFSEL0);
-    // ra&=~(7<<12); //gpio4
-    // ra|=2<<12; //gpio4 alt5 ARM_TDI
-    ra &= ~(7 << 15); //gpio5
-    ra |= 2 << 15;    //gpio5 alt5 ARM_TDO
-    ra &= ~(7 << 18); //gpio6
-    ra |= 2 << 18;    //gpio6 alt5 ARM_RTCK
-    PUT32(GPFSEL0, ra);
+    // ra  = GET32(GPFSEL0);
+    // // ra&=~(7<<12); //gpio4
+    // // ra|=2<<12; //gpio4 alt5 ARM_TDI
+    // ra &= ~(7 << 15); //gpio5
+    // ra |= 2 << 15;    //gpio5 alt5 ARM_TDO
+    // ra &= ~(7 << 18); //gpio6
+    // ra |= 2 << 18;    //gpio6 alt5 ARM_RTCK
+    // PUT32(GPFSEL0, ra);
 
-    ra  = GET32(GPFSEL1);
-    ra &= ~(7 << 6); //gpio12
-    ra |= 2 << 6;    //gpio12  alt5  ARM_TMS
-    ra &= ~(7 << 9); //gpio13
-    ra |= 2 << 9;    //gpio13 alt5 ARM_TCK
-    PUT32(GPFSEL1, ra);
+    // ra  = GET32(GPFSEL1);
+    // ra &= ~(7 << 6); //gpio12
+    // ra |= 2 << 6;    //gpio12  alt5  ARM_TMS
+    // ra &= ~(7 << 9); //gpio13
+    // ra |= 2 << 9;    //gpio13 alt5 ARM_TCK
+    // PUT32(GPFSEL1, ra);
 
-    ra  = GET32(GPFSEL2);
-    ra &= ~(7 << 6); //gpio22
-    ra |= 3 << 6;    //gpio22 alt4 ARM_TRST
-    // ra&=~(7<<9); //gpio23
-    // ra|=3<<9; //gpio23 alt4 ARM_RTCK
-    // ra&=~(7<<12); //gpio24
-    // ra|=3<<12; //gpio24 alt4 ARM_TDO
-    // ra&=~(7<<15); //gpio25
-    // ra|=3<<15; //gpio25 alt4 ARM_TCK
-    ra &= ~(7 << 18); //gpio26
-    ra |= 3 << 18;    //gpio26 alt4 ARM_TCI
-    // ra&=~(7<<21); //gpio27
-    // ra|=3<<21; //gpio27 alt4 ARM_TMS
-    PUT32(GPFSEL2, ra);
+    // ra  = GET32(GPFSEL2);
+    // ra &= ~(7 << 6); //gpio22
+    // ra |= 3 << 6;    //gpio22 alt4 ARM_TRST
+    // // ra&=~(7<<9); //gpio23
+    // // ra|=3<<9; //gpio23 alt4 ARM_RTCK
+    // // ra&=~(7<<12); //gpio24
+    // // ra|=3<<12; //gpio24 alt4 ARM_TDO
+    // // ra&=~(7<<15); //gpio25
+    // // ra|=3<<15; //gpio25 alt4 ARM_TCK
+    // ra &= ~(7 << 18); //gpio26
+    // ra |= 3 << 18;    //gpio26 alt4 ARM_TCI
+    // // ra&=~(7<<21); //gpio27
+    // // ra|=3<<21; //gpio27 alt4 ARM_TMS
+    // PUT32(GPFSEL2, ra);
 
     // init the uart-hardware
     uart_init();

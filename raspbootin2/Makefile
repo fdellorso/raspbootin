@@ -1,5 +1,5 @@
 BASE=$(shell pwd)/
-ARM = $(BASE)../../gcc-arm-none-eabi/bin/arm-none-eabi
+ARM = $(BASE)../../gcc-arm-none-eabi-7-3-1/bin/arm-none-eabi
 CC = $(ARM)-gcc
 AS = $(ARM)-as
 

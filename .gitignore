@@ -5,3 +5,4 @@
 *.img
 *.map
 raspbootcom/raspbootcom
+.vscode/ipch/
